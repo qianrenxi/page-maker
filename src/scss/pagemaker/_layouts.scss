@@ -1,0 +1,57 @@
+$layout-topbar-height: 4rem;
+$layout-topbar-bg: #ececec;
+
+$layout-sidebar-width: 15rem;
+
+html {
+    font-size: 12px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.layout-topbar {
+    padding-top: $layout-topbar-height;
+
+    .topbar {
+        position: fixed;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: $layout-topbar-height;
+        background-color: $layout-topbar-bg;
+    }
+}
+
+.layout-sidebar {
+    position: relative;
+    height: 100%;
+
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: $layout-sidebar-width;
+        height: 100%;
+        background: #345;
+
+        &.end{
+            left: auto;
+            right: 0;
+        }
+    }
+
+    .workspace {
+        //margin-left: $layout-sidebar-width;
+        //margin-right: $layout-sidebar-width;
+        position: absolute;
+        left: $layout-sidebar-width;
+        right: $layout-sidebar-width;
+        top: 0;
+        bottom: 0;
+        overflow: scroll;
+        background: #999;
+    }
+}

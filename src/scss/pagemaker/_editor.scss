@@ -1,0 +1,43 @@
+.overlay {
+    pointer-events: none;
+}
+
+.pm-editor {
+    width: 1280px;
+    min-height: 2000px;
+    background: #fff;
+    border: 1px solid #333;
+    margin: 30px auto;
+    position: relative;
+
+    >.pm-page-container,
+    >.pm-handles-cover,
+    >.pm-refer-lines {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        border: none;
+    }
+
+    .pm-page-container {
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .pm-handles-cover {
+        z-index: 2;
+        pointer-events: none;
+        position: relative;
+        padding: 1px;
+    }
+
+    .pm-refer-lines {
+        z-index: 3;
+        pointer-events: none;
+        padding:1px;
+    }
+}

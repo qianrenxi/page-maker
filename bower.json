@@ -1,0 +1,17 @@
+{
+  "name": "page-maker",
+  "description": "Web Page Marker",
+  "main": "index.js",
+  "authors": [
+    "Tony Een"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/qianrenxi/page-maker",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

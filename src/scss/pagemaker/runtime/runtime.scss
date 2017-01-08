@@ -1,0 +1,7 @@
+body.editable {
+    padding: 1px;
+}
+
+*[contenteditable='plaintext-only'] {
+    outline: #00FF00 dashed thin !important;
+}
