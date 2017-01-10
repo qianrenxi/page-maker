@@ -3,15 +3,57 @@ if(typeof require == "function"){
 }
 
 Component = function() {
-
+    
 };
 
 PageEditor = function(opts) {
     PageEditor = function(opts){
     };
 
+    var com = new Component();
+    
+
     return PageEditor;
 };
+
+(function($){
+    var PageEditor = function(selector, options){
+        this.options = options;
+        this.$body = $(document.body);
+        this.$element = $(selector);
+    }
+
+    PageEditor.VERSION = "1.0.0";
+    PageEditor.DEFAULT = {
+        template: "<div></div>"
+    };
+
+    PageEditor.prototype.addComponent = function(opts){
+        var component = $(opts.template);
+        var comtainer = $(opts.container);
+        component.appendTo(container);
+    }
+
+    PageEditor.prototype.createHandler = function(){
+        
+    };
+
+    var $_pe = function (selector, options){
+        return this.each(function(){
+            var el = $(this);
+            return new PageEditor(this, options);
+        });
+    };
+
+    var _PageEditor = $.fn.PageEditor;
+    $.fn.PageEditor = $_pe;
+    $.fn.PageEditor.Constructor = PageEditor;
+    $.fn.PageEditor.noConflict = function() {
+        $.fn.PageEditor = _PageEditor;
+        return this;
+    };
+
+})(jQuery);
 
 (function($, w){
     $.fn.handler = function(opts){
@@ -42,7 +84,8 @@ PageEditor = function(opts) {
             });
             return h;
         }
-    }
+    };
+
 })(jQuery, window);
 
 /**
@@ -66,17 +109,24 @@ PageEditor = function(opts) {
 (function($, w){
     var css = $("<link>").prop("rel", "stylesheet").prop("href", "http://localhost:3000/css/main.css");
 
-    var btn = $("<a>").text("Primary Button").addClass("btn btn-primary").prop("href", "javascript:void(0);");
+    //var btn = $("<a>").text("Primary Button").addClass("btn btn-primary").prop("href", "javascript:void(0);");
 
     var ed = $("iframe#pm-page-container").contents();
     var hc = $("#pm-handles-cover");
 
     ed.find("head").append(css);
     ed.find("body").addClass("editable");
-    ed.find("body").append("<h1 contenteditable='plaintext-only'>This is a demo page.</h1>");
-    ed.find("body").append(btn);
+    //ed.find("body").append("<h1 contenteditable='plaintext-only'>This is a demo page.</h1>");
+    //ed.find("body").append(btn);
 
-    w.setTimeout(function(){
+    var pe = hc.PageEditor();
+    console.log(pe);
+    /*.addComponent({
+        template: "<div class='container'>Section</div>",
+        container: ed
+    });*/
+
+    /*w.setTimeout(function(){
         $(ed).ready(function(){
             var btn = ed.find("body").find("a");
             var hb = btn.handler().appendTo(hc);
@@ -84,19 +134,8 @@ PageEditor = function(opts) {
             btn.bind("dblclick", function() {
                 $(this).prop("contenteditable", 'plaintext-only');
             });
-
-            btn.on("keydown", function(e){
-                //var me = $(e);
-                console.log(e);
-                /*hb.css({
-                    width: me.outerWidth() + 4 + "px",
-                    height: me.outerHeight() + 4 + "px"
-                });*/
-            });
         });
-    }, 1000);
-
-    //hc.append(btn.css("background", "#444"));
+    }, 1000);*/
 
 
 })(jQuery, window);
