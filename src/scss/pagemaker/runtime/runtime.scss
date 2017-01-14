@@ -5,3 +5,16 @@ body.editable {
 *[contenteditable='plaintext-only'] {
     outline: #00FF00 dashed thin !important;
 }
+
+.pe-element{
+    
+    .pec-empty, &.pec-empty{
+        background: #333;
+        min-height: 120px;
+    }
+
+    &:hover{
+        //outline: #00FF00 dashed 1px !important;
+    }
+
+}

@@ -6,7 +6,7 @@ Component = function() {
     
 };
 
-PageEditor = function(opts) {
+/*PageEditor = function(opts) {
     PageEditor = function(opts){
     };
 
@@ -14,9 +14,9 @@ PageEditor = function(opts) {
     
 
     return PageEditor;
-};
+};*/
 
-(function($){
+/*(function($){
     var PageEditor = function(selector, options){
         this.options = options;
         this.$body = $(document.body);
@@ -53,7 +53,7 @@ PageEditor = function(opts) {
         return this;
     };
 
-})(jQuery);
+})(jQuery);*/
 
 (function($, w){
     $.fn.handler = function(opts){
@@ -109,7 +109,7 @@ PageEditor = function(opts) {
 (function($, w){
     var css = $("<link>").prop("rel", "stylesheet").prop("href", "http://localhost:3000/css/main.css");
 
-    //var btn = $("<a>").text("Primary Button").addClass("btn btn-primary").prop("href", "javascript:void(0);");
+    var btn = $("<a>").text("Primary Button").addClass("btn btn-primary").prop("href", "javascript:void(0);");
 
     var ed = $("iframe#pm-page-container").contents();
     var hc = $("#pm-handles-cover");
@@ -119,8 +119,15 @@ PageEditor = function(opts) {
     //ed.find("body").append("<h1 contenteditable='plaintext-only'>This is a demo page.</h1>");
     //ed.find("body").append(btn);
 
-    var pe = hc.PageEditor();
+    //var pe = $("iframe#pm-page-container").PageEditor();
+    var pe = new PageEditor({
+        container: ed,
+        cover: hc
+    });
     console.log(pe);
+    pe.addElement("<div class=''>afasdfasd</div>");
+    pe.addElement(btn);
+    //pe.createHandler();
     /*.addComponent({
         template: "<div class='container'>Section</div>",
         container: ed
@@ -137,5 +144,35 @@ PageEditor = function(opts) {
         });
     }, 1000);*/
 
+    var pecs = {
+        section: {
+            template: "<div></div>",
+            cssClass: "pec-section pec-empty"
+        },
+        container: {
+            template: "<div></div>",
+            cssClass: "pec-container container pec-empty"
+        },
+        columns: {
+            template: "<div class='row'><div class='col-sm-4 pec-empty'></div><div class='col-sm-4 pec-empty'></div><div class='col-sm-4 pec-empty'></div></div>",
+            cssClass: "pec-columns"
+        },
+        grids: {
+            template: "<div>grids...</div>",
+            cssClass: "pec-grids pec-empty"
+        },
+        panel: {
+            template: "<div class='card card-block'></div>",
+            cssClass: "pec-panel pec-empty"
+        },
+    };
+
+    $(".pec").click(function(){
+        var me = $(this);
+        var pecName = me.data("pecName");
+        var pecOpt = pecs[pecName];
+        var pec = $(pecOpt.template).addClass(pecOpt.cssClass);
+        pe.addElement(pec);
+    });
 
 })(jQuery, window);

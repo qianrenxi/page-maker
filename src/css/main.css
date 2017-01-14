@@ -6052,7 +6052,6 @@ html, body {
     z-index: 1; }
   .pm-editor .pm-handles-cover {
     z-index: 2;
-    pointer-events: none;
     position: relative;
     padding: 1px; }
   .pm-editor .pm-refer-lines {
@@ -6065,3 +6064,7 @@ body.editable {
 
 *[contenteditable='plaintext-only'] {
   outline: #00FF00 dashed thin !important; }
+
+.pe-element .pec-empty, .pe-element.pec-empty {
+  background: #333;
+  min-height: 120px; }
