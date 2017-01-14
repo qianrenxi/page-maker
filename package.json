@@ -4,6 +4,7 @@
   "description": "Web Page Marker",
   "main": "index.js",
   "scripts": {
+    "serve": "gulp serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
