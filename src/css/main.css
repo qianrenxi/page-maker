@@ -6052,8 +6052,25 @@ html, body {
     z-index: 1; }
   .pm-editor .pm-handles-cover {
     z-index: 2;
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     padding: 1px; }
+    .pm-editor .pm-handles-cover .pe-element {
+      position: absolute; }
+      .pm-editor .pm-handles-cover .pe-element > .pe-handler {
+        height: 30px;
+        min-width: 80px;
+        position: absolute;
+        top: -31px;
+        background: #0ce;
+        display: none; }
+      .pm-editor .pm-handles-cover .pe-element.pec-selected {
+        outline: dashed 1px #0f0 !important; }
+        .pm-editor .pm-handles-cover .pe-element.pec-selected > .pe-handler {
+          display: block; }
   .pm-editor .pm-refer-lines {
     z-index: 3;
     pointer-events: none;
@@ -6066,5 +6083,5 @@ body.editable {
   outline: #00FF00 dashed thin !important; }
 
 .pe-element .pec-empty, .pe-element.pec-empty {
-  background: #333;
+  background: rgba(153, 153, 153, 0.3);
   min-height: 120px; }

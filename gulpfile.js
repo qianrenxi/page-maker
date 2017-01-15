@@ -11,23 +11,41 @@ var rename = require('gulp-rename');
 var del = require('del');
 var runSequence = require('run-sequence');
 var replace = require('gulp-replace');
+var webpack = require('webpack-stream');
+
 
 gulp.paths = {
     dist: 'dist'
 }
 var paths = gulp.paths;
 
-gulp.task('serve', ['sass'], function(){
+gulp.task('serve', ['sass', 'scripts'], function(){
     browserSync.init({
         server: {
             baseDir: 'src',
-            routes: {'/bower_components': 'bower_components'}
+            routes: {'/bower_components': 'bower_components', '/js': 'tmp/js'}
         }
     });
 
     gulp.watch('src/scss/**/*.scss', ['sass']);
+    gulp.watch('src/scripts/**/*.js', ['scripts']);
     gulp.watch('**/*.html').on('change', browserSync.reload);
-    gulp.watch('js/**/*.js').on('change', browserSync.reload);
+    gulp.watch('tmp/**/*.js').on('change', browserSync.reload);
+});
+
+gulp.task('scripts', function(){
+    return gulp.src('src/scripts/main.js')
+        //.pipe(named())
+        //.pipe(webpack(require("./webpack.config.js")))
+        .pipe(webpack({
+            //watch: true,  //此配置会阻塞 serve 任务
+            output: {
+                filename: 'main.js',
+            }
+        }))
+        //.pipe(gulp.dest(paths.dist + "/js"));
+        .pipe(gulp.dest("tmp/js"))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('sass', function(){
@@ -69,7 +87,7 @@ gulp.task('copy:fonts', function() {
 });
 
 gulp.task('copy:js', function() {
-   return gulp.src('src/js/**/*')
+   return gulp.src('tmp/js/**/*')
    .pipe(gulp.dest(paths.dist+'/js'));
 });
 

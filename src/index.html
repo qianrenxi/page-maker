@@ -30,22 +30,22 @@
                 </div>
                 <div>基础</div>
                 <div>
-                    <button>DIV块</button>
-                    <button>连接块</button>
-                    <button>按钮</button>
+                    <button class="pec" data-pec-name="div-block">DIV块</button>
+                    <button class="pec" data-pec-name="link-block">连接块</button>
+                    <button class="pec" data-pec-name="button">按钮</button>
                     <button>列表</button>
                     <button>列表项</button>
                 </div>
                 <div>文本</div>
                 <div>
                     <button>富文本</button>
-                    <button>标题</button>
-                    <button>段落</button>
-                    <button>文字链接</button>
+                    <button class="pec" data-pec-name="heading">标题</button>
+                    <button class="pec" data-pec-name="paragraph">段落</button>
+                    <button class="pec" data-pec-name="text-link">文字链接</button>
                 </div>
                 <div>媒体</div>
                 <div>
-                    <button>图像</button>
+                    <button class="pec" data-pec-name="image">图像</button>
                     <button>视频</button>
                     <button>声音</button>
                 </div>
@@ -64,9 +64,9 @@
             </div>
         </div>
         <div class="workspace">
-            <div class="pm-editor">
-                <iframe id="pm-page-container" name="pm-page-container" frameborder="0" class="pm-page-container"></iframe>
-                <div id="pm-handles-cover" class="pm-handles-cover"></div>
+            <div class="pm-editor page-editor">
+                <iframe id="pm-page-container" name="pm-page-container" frameborder="0" class="pm-page-container pe-doc-container"></iframe>
+                <div id="pm-handles-cover" class="pm-handles-cover pe-layout-container"></div>
                 <div id="pm-refer-lines" class="pm-refer-lines"></div>
             </div>
         </div>
@@ -81,7 +81,6 @@
     <script src="/bower_components/tether/dist/js/tether.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script src="js/page-editor.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

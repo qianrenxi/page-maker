@@ -31,8 +31,33 @@
     .pm-handles-cover {
         z-index: 2;
         //pointer-events: none;
-        position: relative;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
         padding: 1px;
+
+        .pe-element{
+            position: absolute;
+
+            > .pe-handler {
+                height: 30px;
+                min-width: 80px;
+                position: absolute;
+                top: -31px;
+                background: #0ce;
+                display: none;
+            }
+
+            &.pec-selected{
+                outline: dashed 1px #0f0 !important;
+
+                > .pe-handler {
+                    display: block;
+                }
+            }
+        }
     }
 
     .pm-refer-lines {

@@ -9,7 +9,7 @@ body.editable {
 .pe-element{
     
     .pec-empty, &.pec-empty{
-        background: #333;
+        background: rgba($color: #999, $alpha: 0.3);
         min-height: 120px;
     }
 
