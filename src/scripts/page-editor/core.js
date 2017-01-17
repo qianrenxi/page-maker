@@ -23,6 +23,16 @@ var PageEditor = function (_options) {
     var _pe = this;
     var layoutRoot = $(options.layoutSelector);
 
+    var editor = $(options.selector);
+    editor.bind("styleSetting", function(e, s){
+        console.log("Style Setting...");
+        console.log(e);
+        console.log(s);
+        if(_pe.selectedElement()){
+            _pe.selectedElement().data("pe").css(s);
+        }
+    });
+
     layoutRoot.on('click', function(e) {
         _pe._selectedElement = null;
         $(".pe-element").removeClass("pec-selected");
@@ -105,7 +115,7 @@ PageEditor.prototype.addElement = function (pecName) {
 PageEditor.prototype.addToLayout = function (el, layoutParent) {
     var pec = $(el);
     var lc = $("<div>").addClass("pe-element");
-    lc.data("pe", el);
+    lc.data("pe", pec);
     lc.append(this.getHandler());
     lc.appendTo(layoutParent || this.selectedElement() || this.layoutRoot);
     lc.parent().removeClass("pec-empty");

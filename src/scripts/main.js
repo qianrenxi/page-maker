@@ -1,4 +1,5 @@
 var PageEditor = require("./page-editor/page-editor");
+require("./style-setting");
 
 (function($){
     var pe = new PageEditor();

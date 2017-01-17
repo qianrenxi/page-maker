@@ -6016,15 +6016,19 @@ html, body {
     background: #345; }
     .layout-sidebar .sidebar.end {
       left: auto;
-      right: 0; }
+      right: 0;
+      width: 20rem; }
   .layout-sidebar .workspace {
     position: absolute;
     left: 15rem;
-    right: 15rem;
+    right: 20rem;
     top: 0;
     bottom: 0;
     overflow: scroll;
     background: #999; }
+
+.sidebar-settings {
+  color: #eee; }
 
 .overlay {
   pointer-events: none; }

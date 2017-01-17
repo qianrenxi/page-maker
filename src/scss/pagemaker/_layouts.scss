@@ -40,6 +40,7 @@ html, body {
         &.end{
             left: auto;
             right: 0;
+            width: $layout-sidebar-width + 5rem;
         }
     }
 
@@ -48,7 +49,7 @@ html, body {
         //margin-right: $layout-sidebar-width;
         position: absolute;
         left: $layout-sidebar-width;
-        right: $layout-sidebar-width;
+        right: $layout-sidebar-width + 5rem;
         top: 0;
         bottom: 0;
         overflow: scroll;
